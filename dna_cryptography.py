@@ -97,7 +97,7 @@ def karimi_demonstration():
         match number:
             case '1':
                 os.system('cls' if os.name == 'nt' else 'clear')
-                password = input('Input a password: ')
+                password = input('Input a password (in binary, 0s and 1s): ')
                 key = Karimi.generate_keys(password)
                 print('Your newly generated keys are: {}.'.format((key)))
 
