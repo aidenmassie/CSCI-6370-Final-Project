@@ -150,13 +150,18 @@ def karimi_demonstration():
         match number:
             case '1':
                 os.system('cls' if os.name == 'nt' else 'clear')
-                password = input('Input a password (in binary, 0s and 1s): ')
-                key = Karimi.generate_keys(password)
-                print('Your newly generated keys are: {}.'.format((key)))
+                while True:
+                        password = input('Input a password (in binary, 0s and 1s): ')
+                        try:
+                            key = Karimi.generate_keys(password)
+                            print('Your newly generated keys are: {}.'.format((key)))
+                            if not ciphertext == None:
+                                print('Alert! Reseting current ciphertext! Please generate a new ciphertext.')
+                                ciphertext = None
+                            break
+                        except:
+                            print('Error! Key length not an even number!')
 
-                if not ciphertext == None:
-                    print('Alert! Reseting current ciphertext! Please generate a new ciphertext.')
-                    ciphertext = None
             case '2':
                 os.system('cls' if os.name == 'nt' else 'clear')
                 if key == None:
